@@ -73,10 +73,10 @@ class RecordScroll
     {
         try
         {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","system","Hello123");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/orcl","root","Mysql123");
             Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs1=stmt.executeQuery("select * from Employee");
+            ResultSet rs1=stmt.executeQuery("select * from Emp");
             rs1.last();
             totalRows=rs1.getRow();
             // System.out.println(totalRows);
@@ -102,10 +102,10 @@ class CustomAdjustmentListener implements AdjustmentListener
         int row=e.getValue();
         try
         {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","system","Hello123");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/orcl","root","Mysql123");
             Statement stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
-            ResultSet rs1=stmt.executeQuery("select * from Employee");
+            ResultSet rs1=stmt.executeQuery("select * from Emp");
             rs1.absolute(row);
             rs.jt1.setText(rs1.getString(1));
             rs.jt2.setText(rs1.getString(2));

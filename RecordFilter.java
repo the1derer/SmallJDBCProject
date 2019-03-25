@@ -65,8 +65,8 @@ class KeyEventListener extends KeyAdapter
 
         try
         {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","system","Hello123");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/orcl","root","PASSWORD");
             Statement stmt=conn.createStatement();
             ResultSet rs=stmt.executeQuery("select * from Employee");
             while(rs.next())

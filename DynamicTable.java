@@ -41,7 +41,7 @@ class DynamicTable implements ActionListener {
         f.add(jb1);
         jb1.addActionListener(this);
         jb2 = new JButton("Cancel");
-        jb2.setBounds(150, 250, 80, 20);
+        jb2.setBounds(150, 250, 100, 20);
         f.add(jb2);
         jb2.addActionListener(this);
         jb3 = new JButton("Build the Table");
@@ -95,9 +95,8 @@ class DynamicTable implements ActionListener {
         if (e.getSource() == jb3) {
             sb.append(")");
             try {
-                // Class.forName("oracle.jdbc.driver.OracleDriver");
-                // Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "system",
-                //         "Hello123");
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/DATABASE","root","PASSWORD");
                 
                 Statement stmt = conn.createStatement();
                 stmt.execute(String.valueOf(sb));

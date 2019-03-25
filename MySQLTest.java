@@ -24,7 +24,7 @@ class Temp
             Class.forName("com.mysql.jdbc.Driver");
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/orcl","shubham","Mysql123");
             Statement s=conn.createStatement();
-            ResultSet rs=s.executeQuery("select * from emp101");
+            ResultSet rs=s.executeQuery("select * from s1[0]");
             while(rs.next())
             {
                 System.out.print(rs.getString(1)+"  ");
